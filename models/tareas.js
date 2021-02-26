@@ -1,5 +1,7 @@
 const Tarea = require('./Tarea');
 require('colors');
+
+// CLASE PRINCIPAL PARA EL CONTROL DE LAS TAREAS
 class Tareas {
 
     _listado = {};

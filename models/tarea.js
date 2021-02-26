@@ -1,5 +1,6 @@
 const { v4: uuidv4 } = require('uuid')
 
+// MODELO DE LAS TAREAS
 class Tarea {
 
     id = "";
@@ -11,7 +12,7 @@ class Tarea {
         this.id = uuidv4();
         this.desc = desc;
         this.completadoEn = null;
-        
+
     }
 
 }
