@@ -62,7 +62,6 @@ const pausa = async () => {
 
     const { enter } = await inquirer.prompt(question)
     return enter;
-
 }
 
 const leerInput = async (message) => {
@@ -123,10 +122,34 @@ const confirmar = async (message) => {
     return ok;
 } 
 
+const mostrarListadoCheckList = async (tareas = []) => {
+
+    const choices = tareas.map( (item, pos) => {
+        return {
+            value: item.id,
+            name: `${ (pos +1) }. ${item.desc}`,
+            checked: (item.completadoEn) ? true : false
+        }
+    });
+
+    const pregunta = [
+        {
+            type: 'checkbox',
+            name: 'ids',
+            message: 'Seleccione',
+            choices
+        }
+    ]
+
+    const { ids } = await inquirer.prompt(pregunta);
+    return ids;
+}
+
 module.exports = {
     inquirerMenu,
     pausa,
     leerInput,
     listadoTareasBorrar,
-    confirmar
+    confirmar,
+    mostrarListadoCheckList
 }

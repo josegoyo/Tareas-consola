@@ -73,6 +73,27 @@ class Tareas {
 
     }
 
+    toggleCompletadas(ids = []) {
+
+        ids.forEach( (id) => {
+            const tarea = this._listado[id];
+
+            if(!tarea.completadoEn){
+                tarea.completadoEn = true;
+            }
+
+        }); 
+
+        this.listadoArray.forEach( tarea =>{
+
+            if( !ids.includes(tarea.id)){
+                this._listado[tarea.id].completadoEn = null;
+            }
+
+        });
+
+    }
+
 }
 
 module.exports = Tareas;
